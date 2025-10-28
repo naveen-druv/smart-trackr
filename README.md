@@ -44,3 +44,54 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+my-app/
+│
+├── public/
+│ ├── index.html
+│ ├── favicon.ico
+│ └── ...
+│
+├── src/
+│ ├── api/ # API service calls, json-server interfaces
+│ │ └── jsonServer.js # json-server API setup or fetch utils
+│ │
+│ ├── app/ # Redux store setup, global state
+│ │ └── store.ts
+│ │
+│ ├── assets/ # Static assets like images, fonts, icons
+│ │
+│ ├── components/ # Reusable UI Components (buttons, inputs)
+│ │ ├── common/ # Generic components used throughout app
+│ │ └── layout/ # Header, Footer, Sidebar components
+│ │
+│ ├── features/ # Feature-specific components and logic
+│ │ └── featureName/
+│ │ ├── FeatureComponent.tsx
+│ │ ├── featureSlice.ts # Redux Toolkit slice for this feature
+│ │ └── featureAPI.ts # API calls related to feature
+│ │
+│ ├── hooks/ # Custom React hooks
+│ │
+│ ├── pages/ # Route components / pages
+│ │ ├── Home.tsx
+│ │ ├── About.tsx
+│ │ └── ...
+│ │
+│ ├── routes/ # React Router routes, route configs
+│ │ └── AppRoutes.tsx
+│ │
+│ ├── styles/ # Global styled-components, themes, style utils
+│ │ ├── theme.ts
+│ │ └── globalStyles.ts
+│ │
+│ ├── utils/ # Utility functions/helpers
+│ │
+│ ├── index.tsx # React app entry point
+│ └── react-app-env.d.ts # TypeScript environment declarations
+│
+├── db.json # JSON file for json-server mock data
+├── package.json
+├── tsconfig.json
+├── .eslintrc.json # ESLint config
+└── README.md

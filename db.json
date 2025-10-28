@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "phone": "9876543210",
+      "createdAt": "2025-10-01T12:00:00Z"
+    },
+    {
+      "id": 2,
+      "name": "Bob Smith",
+      "email": "bob@example.com",
+      "phone": "9123456780",
+      "createdAt": "2025-10-05T15:30:00Z"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "userId": 1,
+      "type": "credit",
+      "amount": 5000,
+      "date": "2025-10-10T10:00:00Z",
+      "description": "Salary deposit"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "type": "debit",
+      "amount": 1500,
+      "date": "2025-10-12T18:15:00Z",
+      "description": "Grocery shopping"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "type": "credit",
+      "amount": 3000,
+      "date": "2025-10-07T09:00:00Z",
+      "description": "Freelance project"
+    }
+  ]
+}
