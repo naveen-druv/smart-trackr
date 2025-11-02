@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { Box, Button, Container, TextField, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../features/users/userSlice';
+import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 
 const SignIn: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -10,11 +15,22 @@ const SignIn: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    try {
+      if (email && password) {
+        const useCredentials = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        console.log('useCredentials: ', useCredentials);
+        // dispatch(setUser(useCredentials.user));
+      }
+    } catch (error) {}
     // Simplified example, replace with real auth
     if (email && password) {
+      console.info('email: ', email, 'password: ', password);
       dispatch(setUser({ id: 1, name: 'Demo User', email, password }));
       navigate('/dashboard');
     }

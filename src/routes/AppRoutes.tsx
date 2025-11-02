@@ -4,7 +4,7 @@ import { RootState } from '../app/store';
 import LandingPage from '../pages/LandingPage';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
-import { Dashboard } from '@mui/icons-material';
+import Dashboard from '../pages/Dashboard';
 
 const ProtectedRoute = () => {
   const isAuthenticated = useSelector(

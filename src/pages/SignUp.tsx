@@ -1,20 +1,33 @@
 import React, { useState } from 'react';
 import { Box, Button, Container, TextField, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth';
+import { auth } from '../firebase';
 const SignUp: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [userName, setUserName] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Simplified, could add API call here
-    if (email && password && name) {
-      alert('Account created! Please sign in.');
-      navigate('/signin');
+    if (email && password && userName) {
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      await updateProfile(user, { displayName: userName });
+      console.log('signup - user: ', user);
+      // navigate('/signin');
+      await auth.updateCurrentUser(user);
+      console.log('signup - user: ', user);
     }
   };
 
@@ -28,8 +41,8 @@ const SignUp: React.FC = () => {
           label='Name'
           fullWidth
           margin='normal'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
           required
         />
         <TextField

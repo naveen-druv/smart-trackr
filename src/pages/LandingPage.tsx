@@ -8,7 +8,7 @@ const LandingPage: React.FC = () => {
   return (
     <Container maxWidth='lg' sx={{ mt: 8, textAlign: 'center' }}>
       <Typography variant='h2' gutterBottom>
-        Welcome to FinTrackr
+        Welcome to SmartTrackr
       </Typography>
       <Typography variant='h5' color='text.secondary' gutterBottom>
         Manage your finances effortlessly with secure and seamless tracking.
